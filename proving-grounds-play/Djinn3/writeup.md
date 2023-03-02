@@ -262,7 +262,7 @@ Result: 7777777
 
 ![3](screenshots/3.png)
 
-Since Jinja may be the backend here, I'll use ![this](https://kleiber.me/blog/2021/10/31/python-flask-jinja2-ssti-example/) implemetation to get code execution. 
+Since Jinja may be the backend here, I'll use this implemetation to get code execution: https://kleiber.me/blog/2021/10/31/python-flask-jinja2-ssti-example/
 
 Third test:
 
