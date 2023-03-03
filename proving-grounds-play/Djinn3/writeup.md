@@ -537,7 +537,7 @@ In a couple minutes, the target fetches my ssh public key:
 
 ![9](screenshots/9.png)
 
-I now login as sain via ssh:
+I now login as saint via ssh:
 
 ```bash
 $ ssh -i key saint@192.168.122.102
