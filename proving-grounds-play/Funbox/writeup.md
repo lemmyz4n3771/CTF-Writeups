@@ -239,7 +239,7 @@ Password:
 Remote system type is UNIX.
 Using binary mode to transfer files.
 ```
-![1](screenshots.1.png)
+![1](screenshots/1.png)
 
 I can read local.txt and an email that indicates that a backup script is running:
 
