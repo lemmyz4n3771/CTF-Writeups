@@ -37,7 +37,7 @@ If I go to the /wordpress endpoint, I get a page, but it isn't being rendered pr
 
 ![1](screenshots/1.png)
 
-On the homepage, there is a link to http://loly.lc/wordpress/. I'll add /loly.lc to `/etc/hosts`
+On the homepage, there is a link to http://loly.lc/wordpress/. I'll add loly.lc to `/etc/hosts`
 I refresh the page and now it looks better.
 
 ![2](screenshots/2.png)
@@ -281,7 +281,7 @@ loly@ubuntu:/var/www/html/wordpress$ whoami                               whoami
 loly
 ```
 
-I ran linpeas and saw that the system is old and likely vulnerable to a kernel exploit. I'll try the first one suggested, which references ![this](https://www.exploit-db.com/exploits/45010) website.
+I ran linpeas and saw that the system is old and likely vulnerable to a kernel exploit. I'll try the first one suggested, which references [this](https://www.exploit-db.com/exploits/45010) website.
 
 At some point, the shell died. Since I identified a possible kernel exploit, I tried to compile the exploit as www-data. However, it didn't work:
 
