@@ -1,3 +1,5 @@
+## Funbox: Writeup
+
 Nmap reveals there are four ports open:
 
 ```bash
