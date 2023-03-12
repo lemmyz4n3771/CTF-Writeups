@@ -115,7 +115,9 @@ This is vulnerable to a type of attack called *PHP type juggling*, which has to 
 From the above slides:
 > PHP translates POST variables like this to an empty array which causes strcmp() to barf:
 > strcmp(array(), "thePassword") -> NULL
+
 and
+
 > NULL == 0
 
 This means, if I pass the application an array which is compared to nothing (NULL), it will evaluate to true.
