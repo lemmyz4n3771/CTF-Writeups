@@ -66,9 +66,11 @@ MariaDB [data]> show tables;
 +----------------+
 | fernet         |
 +----------------+
+```
 
-Inside fernet, I find cred and keyy:
+Inside fernet, I find `cred` and `keyy`:
 
+```bash
 MariaDB [data]> select cred from fernet;
 +--------------------------------------------------------------------------------------------------------------------------+
 | cred                                                                                                                     |
