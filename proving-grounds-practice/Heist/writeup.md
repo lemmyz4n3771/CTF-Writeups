@@ -399,7 +399,7 @@ Running Bloodhound and uploading the zip file, I find the following relationship
 
 ![5](screenshots/5.png)
 
-Enox is a member of `Web Admins` who can read the Group Managed Service Account (GMSA) password for the machine account `svc_apache$`. The GMSA password is an automatically generated security credential to permit cetain services to operate. If I can read this account's NTLM hash, I can then pass it and successfully pivot to this user and see what privileges the new user has.
+Enox is a member of `Web Admins` who can read the Group Managed Service Account (GMSA) password for the machine account `svc_apache$`. The GMSA password is an automatically generated security credential to permit certain services to operate. If I can read this account's NTLM hash, I can then pass it and successfully pivot to this user and see what privileges the new user has.
 
 Checking the 'Abuse Info' tab in Bloodhound, it recomends using [GMSAPasswordReader](https://github.com/rvazarkar/GMSAPasswordReader). I downloaded the repo and compiled the solution in another Windows VM, then transferred the binary to the target, then ran this command:
 
